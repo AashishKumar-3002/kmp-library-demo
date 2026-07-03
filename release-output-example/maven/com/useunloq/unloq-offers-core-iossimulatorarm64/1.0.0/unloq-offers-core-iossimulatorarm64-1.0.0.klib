@@ -1,0 +1,4 @@
+placeholder: Kotlin/Native iOS simulator arm64 klib
+
+This is used by a merchant's KMP build when targeting the iOS simulator.
+

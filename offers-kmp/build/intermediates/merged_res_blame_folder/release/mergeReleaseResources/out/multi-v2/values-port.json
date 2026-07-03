@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-mergeReleaseResources-1:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/009b1cf2c6e30c0f2de957bb260d22f6/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-release-3:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/009b1cf2c6e30c0f2de957bb260d22f6/transformed/appcompat-1.6.1/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

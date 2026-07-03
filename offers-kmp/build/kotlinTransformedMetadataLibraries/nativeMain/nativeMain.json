@@ -1,0 +1,12 @@
+[
+  {
+    "moduleId": "project ::shared-core",
+    "file": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/classes/kotlin/metadata/appleMain/klib/shared-core_appleMain",
+    "sourceSetName": "appleMain"
+  },
+  {
+    "moduleId": "project ::shared-core",
+    "file": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/classes/kotlin/metadata/nativeMain/klib/shared-core_nativeMain",
+    "sourceSetName": "nativeMain"
+  }
+]

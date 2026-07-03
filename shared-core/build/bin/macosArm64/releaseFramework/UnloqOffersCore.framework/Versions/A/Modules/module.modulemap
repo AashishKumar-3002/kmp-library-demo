@@ -1,0 +1,8 @@
+framework module "UnloqOffersCore" {
+    umbrella header "UnloqOffersCore.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}

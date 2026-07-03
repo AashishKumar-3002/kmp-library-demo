@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.useunloq.offers.kmp.offers-kmp-release-3:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "com.useunloq.offers.kmp.offers-kmp-appcompat-1.6.1-9:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "com.useunloq.offers.kmp.offers-kmp-release-3:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "com.useunloq.offers.kmp.offers-kmp-appcompat-1.6.1-9:/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    }
+]

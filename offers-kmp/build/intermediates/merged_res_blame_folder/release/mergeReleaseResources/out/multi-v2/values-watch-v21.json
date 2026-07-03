@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-mergeReleaseResources-1:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/009b1cf2c6e30c0f2de957bb260d22f6/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-release-3:/values-watch-v21/values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/009b1cf2c6e30c0f2de957bb260d22f6/transformed/appcompat-1.6.1/res/values-watch-v21/values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

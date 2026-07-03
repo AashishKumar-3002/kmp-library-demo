@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-release-3:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-mergeReleaseResources-1:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "54",
+                        "endOffsets": "105"
+                    }
+                }
+            ]
+        }
+    ]
+}

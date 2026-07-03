@@ -1,0 +1,3 @@
+module NativeIosWrapperDemo {
+    header "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/index-build/arm64-apple-macosx/debug/NativeIosWrapperDemo.build/include/NativeIosWrapperDemo-Swift.h"
+}

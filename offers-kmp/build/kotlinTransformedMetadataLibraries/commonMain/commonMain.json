@@ -1,0 +1,12 @@
+[
+  {
+    "moduleId": "project ::shared-core",
+    "file": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/classes/kotlin/metadata/commonMain",
+    "sourceSetName": "commonMain"
+  },
+  {
+    "moduleId": "module org.jetbrains.kotlin:kotlin-stdlib:2.0.21",
+    "file": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/kotlinTransformedMetadataLibraries/commonMain/org.jetbrains.kotlin-kotlin-stdlib-2.0.21-commonMain-WPEnbA.klib",
+    "sourceSetName": "commonMain"
+  }
+]

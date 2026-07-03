@@ -1,0 +1,4 @@
+placeholder: common Kotlin metadata jar
+
+This is used by KMP builds for commonMain metadata.
+

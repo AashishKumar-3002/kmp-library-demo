@@ -1,0 +1,23 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.useunloq",
+    "module": "unloq-offers-core-android",
+    "version": "1.0.0"
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements",
+      "attributes": {
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      }
+    },
+    {
+      "name": "releaseRuntimeElements",
+      "attributes": {
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,12 @@
+placeholder: compiled KMP core iOS XCFramework zip
+
+In a real release this file is produced by:
+
+./gradlew :shared-core:assembleUnloqOffersCoreReleaseXCFramework
+
+It contains:
+
+UnloqOffersCore.xcframework/
+  ios-arm64/UnloqOffersCore.framework
+  ios-arm64_x86_64-simulator/UnloqOffersCore.framework
+
