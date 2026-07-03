@@ -1,6 +1,0 @@
-placeholder: Android target POM
-
-This module is selected when an Android build depends on:
-
-com.useunloq:unloq-offers-core:1.0.0
-

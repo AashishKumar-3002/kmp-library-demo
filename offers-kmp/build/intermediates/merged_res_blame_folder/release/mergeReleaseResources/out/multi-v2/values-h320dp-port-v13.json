@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.useunloq.offers.kmp.offers-kmp-release-3:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-mergeReleaseResources-2:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+                    "source": "/private/tmp/codex-gradle-home/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "com.useunloq.offers.kmp.offers-kmp-mergeReleaseResources-1:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.useunloq.offers.kmp.offers-kmp-release-4:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "/private/tmp/codex-gradle-home-kmp-poc/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+                    "source": "/private/tmp/codex-gradle-home/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/res/values-h320dp-port-v13/values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

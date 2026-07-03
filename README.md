@@ -1,115 +1,193 @@
 # KMP Library Demo
 
-This repo is now a small runnable PoC for the architecture claim, not just a diagram.
-
-The claim being validated is:
+This repo validates the final SDK split:
 
 ```text
-KMP merchants can consume a merchant-facing KMP SDK from commonMain
-That KMP SDK can own the UI entrypoint
-The UI shell is platform-native through expect/actual
-Existing Android and Swift wrappers can still remain secondary consumers of the shared core
+shared-core
+  -> owns core KMP business logic
+
+native-android-wrapper
+  -> depends on shared-core
+  -> owns Android SDK implementation and Android UI
+
+native-ios-wrapper
+  -> depends on shared-core/UnloqOffersCore.xcframework
+  -> owns Swift SDK implementation and iOS UI/bridge surface
+
+offers-kmp
+  -> commonMain is only a facade
+  -> androidMain delegates to native-android-wrapper
+  -> iosSimulatorArm64Main delegates to native-ios-wrapper through ObjC/cinterop
+
+kmp-merchant-app
+  -> sample merchant app consuming offers-kmp
+  -> builds Android APK
+  -> validates iOS simulator path through KMP tests
 ```
 
-## Layout
+The important constraint is preserved: `offers-kmp/commonMain` has no core logic and no direct `shared-core` dependency.
+
+## Prerequisites
+
+- macOS with Xcode installed for iOS commands.
+- Android SDK installed for Android commands.
+- Gradle available as `gradle`, or set `GRADLE_CMD=./gradlew` if a Gradle wrapper is added later.
+- Run all commands from this repo root.
+
+Recommended shell setup:
+
+```bash
+export GRADLE_CMD="${GRADLE_CMD:-gradle}"
+export GRADLE_USER_HOME="${GRADLE_USER_HOME:-/tmp/unloq-kmp-gradle-home}"
+export IOS_DERIVED_DATA="${IOS_DERIVED_DATA:-/tmp/unloq-kmp-ios-derived-data}"
+```
+
+## Build And Test Android
+
+```bash
+$GRADLE_CMD --no-daemon \
+  :shared-core:jvmTest \
+  :native-android-wrapper:testDebugUnitTest \
+  :offers-kmp:assembleDebug \
+  :kmp-merchant-app:assembleDebug
+```
+
+This proves the Android chain:
 
 ```text
-kmp-library-demo/
-  shared-core/
-    build.gradle.kts
-    src/commonMain/kotlin/...
-    src/androidMain/kotlin/...
-    src/iosMain/kotlin/...
-
-  offers-kmp/
-    build.gradle.kts
-    src/commonMain/kotlin/...
-    src/androidMain/kotlin/...
-    src/iosMain/kotlin/...
-
-  android-demo-app/
-    build.gradle.kts
-    src/main/java/...
-    src/main/res/...
+kmp-merchant-app Android APK
+  -> offers-kmp androidMain
+  -> native-android-wrapper
+  -> shared-core
 ```
 
-## What This PoC Actually Proves
+## Run The Android Merchant App
 
-### 1. `shared-core` is the headless KMP core
+Build:
 
-It exposes the shared business logic:
+```bash
+$GRADLE_CMD --no-daemon :kmp-merchant-app:assembleDebug
+```
 
-- `initialize(...)`
-- `setUser(...)`
-- `setAttribution(...)`
-- `emitEvent(...)`
-- `evaluate(...)`
-
-The returned `OfferDecision` includes:
-
-- eligibility
-- reward copy
-- platform marker
-- widget URL assembled from shared state
-- debug summary proving shared state was used
-
-### 2. `offers-kmp` is the merchant-facing KMP SDK
-
-This is the actual merchant integration path in the Phase 1 shape.
-
-It owns:
-
-- the common `UnloqOffers` API
-- the `showWidget(...)` entrypoint
-- `expect/actual` widget presentation
-- Android rendering helper that opens a real bottom sheet + WebView
-
-`shared-core` decides eligibility and builds the widget URL. `offers-kmp` presents that URL through a native shell:
-
-- Android actual: `bottom sheet + WebView`
-- iOS actual: `sheet + WKWebView`
-- JVM/macOS actuals: non-UI placeholders used only so local builds still work
-
-### 3. `android-demo-app` is the thing to open
-
-This is the sample merchant app you can actually run to see UI.
-
-The button in `MainActivity` initializes `offers-kmp`, evaluates the offer, and opens a bottom sheet with a WebView-backed demo widget.
-
-### 4. What was removed from the main flow
-
-- `poc-cli` is no longer part of the build flow
-- `native-android-wrapper`, `native-ios-wrapper`, and `kmp-merchant-app` are no longer included in Gradle settings
-- the repo now focuses on `shared-core` + `offers-kmp` + `android-demo-app`
-
-## See UI
+APK output:
 
 ```text
-GRADLE_USER_HOME=/private/tmp/codex-gradle-home ../unloq-offer-sdk-kotlin/gradlew --no-daemon -p "$PWD" :android-demo-app:assembleDebug
+kmp-merchant-app/build/outputs/apk/debug/kmp-merchant-app-debug.apk
 ```
 
-That produces the sample APK at:
+Install on a connected device or emulator:
+
+```bash
+adb install -r kmp-merchant-app/build/outputs/apk/debug/kmp-merchant-app-debug.apk
+```
+
+Open `UNLOQ KMP Merchant` and tap `Show Offer Widget`. The Android path opens the SDK UI through `native-android-wrapper`.
+
+## Run The Native iOS SDK Test
+
+First build the core XCFramework consumed by the Swift SDK:
+
+```bash
+$GRADLE_CMD --no-daemon :shared-core:assembleUnloqOffersCoreReleaseXCFramework
+```
+
+Then run the Swift SDK XCTest on an iOS Simulator:
+
+```bash
+(
+  cd native-ios-wrapper
+  xcodebuild test \
+    -scheme NativeIosWrapperDemo \
+    -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.1' \
+    -derivedDataPath "$IOS_DERIVED_DATA"
+)
+```
+
+If that simulator is not installed, list available destinations:
+
+```bash
+cd native-ios-wrapper
+xcodebuild -scheme NativeIosWrapperDemo -showdestinations
+cd -
+```
+
+Then replace the `-destination` value with an installed iOS Simulator.
+
+This proves:
 
 ```text
-android-demo-app/build/outputs/apk/debug/android-demo-app-debug.apk
+native-ios-wrapper
+  -> UnloqOffersCore.xcframework
+  -> XCTest running on iOS Simulator
 ```
 
-Install it on an emulator/device and tap `Show Offer Widget`.
+## Run The KMP Wrapper iOS Test
 
-## KMP Build Commands
+The KMP wrapper iOS simulator target depends on the Swift SDK framework generated by the previous `xcodebuild test` command. After running the native iOS SDK test, run:
+
+```bash
+$GRADLE_CMD --no-daemon \
+  -PiosDerivedData="$IOS_DERIVED_DATA" \
+  :offers-kmp:iosSimulatorArm64Test
+```
+
+Then validate the KMP merchant sample on iOS:
+
+```bash
+$GRADLE_CMD --no-daemon \
+  -PiosDerivedData="$IOS_DERIVED_DATA" \
+  :kmp-merchant-app:iosSimulatorArm64Test
+```
+
+This proves:
 
 ```text
-GRADLE_USER_HOME=/private/tmp/codex-gradle-home ../unloq-offer-sdk-kotlin/gradlew --no-daemon -p "$PWD" :shared-core:jvmTest :offers-kmp:jvmTest
-GRADLE_USER_HOME=/private/tmp/codex-gradle-home ../unloq-offer-sdk-kotlin/gradlew --no-daemon -p "$PWD" :shared-core:assembleUnloqOffersCoreReleaseXCFramework
-GRADLE_USER_HOME=/private/tmp/codex-gradle-home ../unloq-offer-sdk-kotlin/gradlew --no-daemon -p "$PWD" :offers-kmp:assemble
+offers-kmp iosSimulatorArm64Main
+  -> Kotlin/Native cinterop
+  -> native-ios-wrapper ObjC bridge
+  -> shared-core
 ```
 
-Those produce:
+Current limitation: `iosArm64` device wiring still needs the device slice of the Swift SDK framework/XCFramework exposed to Kotlin/Native cinterop. The simulator path is fully tested.
+
+## KMP Merchant App iOS Status
+
+`kmp-merchant-app/iosApp` is a visual iOS merchant app. It installs the local `native-ios-wrapper` Swift package, and that package links the KMP core XCFramework.
+
+Build it after generating the core XCFramework:
+
+```bash
+$GRADLE_CMD --no-daemon :shared-core:assembleUnloqOffersCoreReleaseXCFramework
+
+xcodebuild build \
+  -project kmp-merchant-app/iosApp/KmpMerchantApp.xcodeproj \
+  -scheme KmpMerchantApp \
+  -destination 'platform=iOS Simulator,name=iPhone 17,OS=26.1' \
+  -derivedDataPath "$IOS_DERIVED_DATA"
+```
+
+Install and launch on a booted simulator:
+
+```bash
+xcrun simctl boot 'iPhone 17' || true
+xcrun simctl install booted "$IOS_DERIVED_DATA/Build/Products/Debug-iphonesimulator/KmpMerchantApp.app"
+xcrun simctl launch booted merchant.demo.kmp.ios
+```
+
+The app shows `UNLOQ KMP Merchant App`, imports `NativeIosWrapperDemo`, initializes the SDK, and displays the generated offer summary + widget URL.
+
+## Release Output Example
+
+See `release-output-example/README.md`.
+
+The example layout includes:
 
 ```text
-shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework
-shared-core/build/libs/shared-core-jvm-1.0.0.jar
-offers-kmp/build/libs/offers-kmp-jvm.jar
-offers-kmp/build/outputs/aar/offers-kmp-release.aar
-offers-kmp/build/bin/androidReleaseLibrary/offers-kmp-release.aar
+release-output-example/core/1.0.0/
+release-output-example/native-kotlin-wrapper/1.0.0/
+release-output-example/native-swift-wrapper/1.0.0/
+release-output-example/kmp-wrapper/1.0.0/
+release-output-example/kmp-merchant-app/1.0.0/
 ```
+
+It intentionally separates core assets, native wrapper assets, KMP wrapper assets, and merchant app assets.

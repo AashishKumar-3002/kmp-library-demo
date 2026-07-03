@@ -1,12 +1,13 @@
 import Foundation
 import UnloqOffersCore
 
-public final class UNQOffers {
+@objc(UNQOffersBridge)
+public final class UNQOffers: NSObject {
     private let client = UnloqOffersCoreClient()
 
-    public init() {}
+    @objc public override init() {}
 
-    public func initialize(merchantId: String, widgetBaseUrl: String) {
+    @objc public func initialize(merchantId: String, widgetBaseUrl: String) {
         client.initialize(
             config: OfferSdkConfig(
                 merchantId: merchantId,
@@ -16,25 +17,30 @@ public final class UNQOffers {
         )
     }
 
-    public func setUser(id: String, loyaltyTier: String) {
+    @objc public func setUser(id: String, loyaltyTier: String) {
         client.setUser(user: OfferUser(id: id, loyaltyTier: loyaltyTier))
     }
 
-    public func setAttribution(source: String, campaign: String) {
+    @objc public func setAttribution(source: String, campaign: String) {
         client.setAttribution(attribution: OfferAttribution(source: source, campaign: campaign))
     }
 
-    public func emitEvent(name: String, value: String) {
+    @objc public func emitEvent(name: String, value: String) {
         client.emitEvent(event: OfferEvent(name: name, value: value))
     }
 
-    public func bannerText(cartValue: Int64) -> String {
+    @objc public func bannerText(cartValue: Int64) -> String {
         let result = client.evaluate(cartValue: cartValue, currency: "INR")
         return "\(result.title): \(result.rewardText)"
     }
 
-    public func widgetUrl(cartValue: Int64) -> String {
+    @objc public func widgetUrl(cartValue: Int64) -> String {
         let result = client.evaluate(cartValue: cartValue, currency: "INR")
         return result.widgetUrl
+    }
+
+    @objc public func widgetPresentationSummary(screenName: String, hostId: String, cartValue: Int64) -> String {
+        let result = client.evaluate(cartValue: cartValue, currency: "INR")
+        return "\(screenName) on \(hostId) -> \(result.rewardText)"
     }
 }

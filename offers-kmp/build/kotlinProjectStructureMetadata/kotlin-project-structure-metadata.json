@@ -44,26 +44,6 @@
           "nativeMain",
           "commonMain"
         ]
-      },
-      {
-        "name": "jvmApiElements",
-        "sourceSet": [
-          "commonMain"
-        ]
-      },
-      {
-        "name": "jvmRuntimeElements",
-        "sourceSet": [
-          "commonMain"
-        ]
-      },
-      {
-        "name": "macosArm64ApiElements",
-        "sourceSet": [
-          "appleMain",
-          "nativeMain",
-          "commonMain"
-        ]
       }
     ],
     "sourceSets": [
@@ -73,7 +53,6 @@
           "nativeMain"
         ],
         "moduleDependency": [
-          "com.useunloq:shared-core",
           "org.jetbrains.kotlin:kotlin-stdlib"
         ],
         "sourceSetCInteropMetadataDirectory": "appleMain-cinterop",
@@ -84,7 +63,6 @@
         "name": "commonMain",
         "dependsOn": [],
         "moduleDependency": [
-          "com.useunloq:shared-core",
           "org.jetbrains.kotlin:kotlin-stdlib"
         ],
         "binaryLayout": "klib"
@@ -95,7 +73,6 @@
           "appleMain"
         ],
         "moduleDependency": [
-          "com.useunloq:shared-core",
           "org.jetbrains.kotlin:kotlin-stdlib"
         ],
         "sourceSetCInteropMetadataDirectory": "iosMain-cinterop",
@@ -108,7 +85,6 @@
           "commonMain"
         ],
         "moduleDependency": [
-          "com.useunloq:shared-core",
           "org.jetbrains.kotlin:kotlin-stdlib"
         ],
         "sourceSetCInteropMetadataDirectory": "nativeMain-cinterop",

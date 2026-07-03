@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.useunloq.offers.kmp.UnloqOffersTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-07-03T09:22:16" hostname="Aashishs-MacBook-Pro.local" time="0.001">
+  <properties/>
+  <testcase name="merchant-facing kmp sdk can evaluate and present widget[iosSimulatorArm64]" classname="com.useunloq.offers.kmp.UnloqOffersTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

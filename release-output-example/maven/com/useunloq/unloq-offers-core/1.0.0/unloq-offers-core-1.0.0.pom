@@ -1,8 +1,0 @@
-placeholder: root Kotlin Multiplatform POM
-
-This is the root Maven publication for:
-
-com.useunloq:unloq-offers-core:1.0.0
-
-Gradle uses this with the .module file to resolve the right target variant.
-

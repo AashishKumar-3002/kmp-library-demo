@@ -1,4 +1,0 @@
-placeholder: Kotlin/Native iOS arm64 klib
-
-This is used by a merchant's KMP build when targeting physical iOS devices.
-

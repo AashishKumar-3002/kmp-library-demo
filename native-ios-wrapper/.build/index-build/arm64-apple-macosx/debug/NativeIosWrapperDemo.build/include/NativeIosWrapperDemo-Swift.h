@@ -344,6 +344,7 @@ extern "C" {
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import ObjectiveC;
 #endif
 
 #endif // defined(__OBJC__)
@@ -365,6 +366,19 @@ extern "C" {
 #endif
 
 #if defined(__OBJC__)
+
+@class NSString;
+SWIFT_CLASS_NAMED("UNQOffers")
+@interface UNQOffersBridge : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)initializeWithMerchantId:(NSString * _Nonnull)merchantId widgetBaseUrl:(NSString * _Nonnull)widgetBaseUrl;
+- (void)setUserWithId:(NSString * _Nonnull)id loyaltyTier:(NSString * _Nonnull)loyaltyTier;
+- (void)setAttributionWithSource:(NSString * _Nonnull)source campaign:(NSString * _Nonnull)campaign;
+- (void)emitEventWithName:(NSString * _Nonnull)name value:(NSString * _Nonnull)value;
+- (NSString * _Nonnull)bannerTextWithCartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)widgetUrlWithCartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)widgetPresentationSummaryWithScreenName:(NSString * _Nonnull)screenName hostId:(NSString * _Nonnull)hostId cartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
+@end
 
 #endif // defined(__OBJC__)
 #if __has_attribute(external_source_symbol)

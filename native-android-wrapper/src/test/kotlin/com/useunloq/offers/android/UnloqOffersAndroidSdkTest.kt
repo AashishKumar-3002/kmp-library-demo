@@ -1,6 +1,5 @@
 package com.useunloq.offers.android
 
-import com.useunloq.offers.core.OfferEnvironment
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertTrue
@@ -11,7 +10,7 @@ class UnloqOffersAndroidSdkTest {
         val sdk = UnloqOffersAndroidSdk()
         sdk.initialize(
             merchantId = "merchant_123",
-            environment = OfferEnvironment.QA,
+            environment = "QA",
             widgetBaseUrl = "https://qa-sdk.useunloq.com/widget"
         )
         sdk.setUser(id = "android_user", loyaltyTier = "gold")

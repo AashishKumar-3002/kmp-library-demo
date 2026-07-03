@@ -10,6 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "NativeIosWrapperDemo",
+            type: .dynamic,
             targets: ["NativeIosWrapperDemo"]
         )
     ],

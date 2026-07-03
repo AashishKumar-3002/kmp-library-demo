@@ -17,5 +17,6 @@ dependencyResolutionManagement {
 rootProject.name = "unloq-kmp-library-demo"
 
 include(":shared-core")
+include(":native-android-wrapper")
 include(":offers-kmp")
-include(":android-demo-app")
+include(":kmp-merchant-app")

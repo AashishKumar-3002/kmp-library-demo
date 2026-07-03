@@ -1,16 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml:2:13-83
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml:2:13-83
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml:2:13-83
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml:2:13-83
 	package
-		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml
+		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml
 	xmlns:android
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml:2:23-81
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml:2:23-81
 uses-sdk
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml reason: use-sdk injection requested
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml reason: use-sdk injection requested
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml
 	android:targetSdkVersion
-		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml
+		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml
 	android:minSdkVersion
-		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest4910489990809400774.xml
+		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/tmp/ProcessLibraryManifest/release/tempAndroidManifest244178539178477877.xml

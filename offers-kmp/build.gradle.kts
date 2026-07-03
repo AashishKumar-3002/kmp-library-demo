@@ -3,21 +3,44 @@ plugins {
     id("com.android.library")
 }
 
+val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
+    .orElse(providers.environmentVariable("IOS_DERIVED_DATA"))
+    .orElse("/tmp/unloq-kmp-ios-derived-data")
+    .get()
+
 kotlin {
-    jvm()
     androidTarget()
     iosArm64()
-    iosSimulatorArm64()
-    macosArm64()
-
-    sourceSets {
-        commonMain.dependencies {
-            api(project(":shared-core"))
+    iosSimulatorArm64 {
+        binaries.all {
+            linkerOpts(
+                "-F$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks",
+                "-framework",
+                "NativeIosWrapperDemo",
+                "-framework",
+                "UnloqOffersCore",
+                "-rpath",
+                "$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks"
+            )
         }
 
+        compilations.getByName("main") {
+            cinterops {
+                val nativeIosWrapperDemo by creating {
+                    defFile(project.file("src/nativeInterop/cinterop/NativeIosWrapperDemo.def"))
+                    packageName("nativeios")
+                    compilerOpts(
+                        "-I$iosDerivedDataPath/Build/Intermediates.noindex/GeneratedModuleMaps-iphonesimulator"
+                    )
+                }
+            }
+        }
+    }
+
+    sourceSets {
         androidMain.dependencies {
-            implementation("androidx.fragment:fragment-ktx:1.8.2")
-            implementation("com.google.android.material:material:1.12.0")
+            implementation(project(":native-android-wrapper"))
+            api("androidx.fragment:fragment-ktx:1.8.2")
         }
 
         commonTest.dependencies {

@@ -1,6 +1,5 @@
 package com.useunloq.offers.kmp
 
-import com.useunloq.offers.core.OfferEnvironment
 import kotlin.test.Test
 import kotlin.test.assertContains
 

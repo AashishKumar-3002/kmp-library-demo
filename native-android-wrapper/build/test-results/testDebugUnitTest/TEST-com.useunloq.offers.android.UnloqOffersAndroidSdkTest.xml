@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.useunloq.offers.android.UnloqOffersAndroidSdkTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-07-03T09:19:55" hostname="Aashishs-MacBook-Pro.local" time="0.012">
+  <properties/>
+  <testcase name="android wrapper delegates to shared core" classname="com.useunloq.offers.android.UnloqOffersAndroidSdkTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,6 +1,6 @@
-# KMP Core Release Output Example
+# Release Output Example
 
-This folder shows what the new KMP core repo would publish during a release.
+This folder shows the expected release artifact layout for the final architecture.
 
 Version used in this example:
 
@@ -8,119 +8,73 @@ Version used in this example:
 1.0.0
 ```
 
-## Files Uploaded To S3/CDN
-
-These files are for the Swift repo to consume during its release workflow.
+## Artifact Ownership
 
 ```text
-s3://sdk-bucket/ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip
-s3://sdk-bucket/ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip.checksum
-s3://sdk-bucket/ios/kmp-core/1.0.0/release-manifest.json
+core/
+  Produced by the KMP core repo.
+  Consumed by native-kotlin-wrapper and native-swift-wrapper.
+
+native-kotlin-wrapper/
+  Produced by the native Android/Kotlin SDK repo.
+  Depends on core Maven artifacts.
+  Consumed by Android merchants, React Native Android, Flutter Android, and offers-kmp androidMain.
+
+native-swift-wrapper/
+  Produced by the native Swift/iOS SDK repo.
+  Depends on core UnloqOffersCore.xcframework.zip.
+  Consumed by iOS merchants, React Native iOS, Flutter iOS, and offers-kmp iosMain through ObjC/cinterop.
+
+kmp-wrapper/
+  Produced by the KMP UI wrapper repo.
+  commonMain is only a facade.
+  androidMain delegates to native-kotlin-wrapper.
+  iosMain delegates to native-swift-wrapper.
+
+kmp-merchant-app/
+  Produced by the KMP merchant sample app.
+  Android output is an installable APK.
+  iOS output is an installable simulator app from kmp-merchant-app/iosApp.
 ```
 
-Public/CDN URLs would look like:
+## Expected Tree
 
 ```text
-https://sdk.useunloq.com/ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip
-https://sdk.useunloq.com/ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip.checksum
-https://sdk.useunloq.com/ios/kmp-core/1.0.0/release-manifest.json
+release-output-example/
+  core/1.0.0/
+    ios/
+      UnloqOffersCore.xcframework.zip
+      UnloqOffersCore.xcframework.zip.checksum
+      release-manifest.json
+    maven/com/useunloq/
+      unloq-offers-core/1.0.0/
+      unloq-offers-core-android/1.0.0/
+      unloq-offers-core-iosarm64/1.0.0/
+      unloq-offers-core-iossimulatorarm64/1.0.0/
+
+  native-kotlin-wrapper/1.0.0/
+    maven/com/useunloq/unloq-offers-android/1.0.0/
+
+  native-swift-wrapper/1.0.0/
+    ios/
+      UnloqOffers.xcframework.zip
+      UnloqOffers.xcframework.zip.checksum
+      release-manifest.json
+
+  kmp-wrapper/1.0.0/
+    maven/com/useunloq/
+      unloq-offers-kmp/1.0.0/
+      unloq-offers-kmp-android/1.0.0/
+      unloq-offers-kmp-iosarm64/1.0.0/
+      unloq-offers-kmp-iossimulatorarm64/1.0.0/
+
+  kmp-merchant-app/1.0.0/
+    android/
+      kmp-merchant-app-debug.apk
+      output-metadata.json
+    ios/
+      KmpMerchantApp.app.zip
+      KmpMerchantApp.xcresult
 ```
 
-## Files Published To Maven For Android/KMP
-
-These are not uploaded as loose S3 zip files in the iOS artifact path. They are published to the Maven repository used by Android/KMP consumers.
-
-Example Maven coordinates:
-
-```text
-com.useunloq:unloq-offers-core:1.0.0
-```
-
-Gradle/KMP publication creates multiple Maven modules/variants, conceptually:
-
-```text
-unloq-offers-core
-unloq-offers-core-android
-unloq-offers-core-iosarm64
-unloq-offers-core-iossimulatorarm64
-```
-
-In this demo, those files are represented under:
-
-```text
-maven/com/useunloq/unloq-offers-core/1.0.0/
-maven/com/useunloq/unloq-offers-core-android/1.0.0/
-maven/com/useunloq/unloq-offers-core-iosarm64/1.0.0/
-maven/com/useunloq/unloq-offers-core-iossimulatorarm64/1.0.0/
-```
-
-The Android-specific output is:
-
-```text
-maven/com/useunloq/unloq-offers-core-android/1.0.0/unloq-offers-core-android-1.0.0.aar
-```
-
-That `.aar` is what Android builds get through Gradle dependency resolution. The Android repo should not download that AAR manually from S3.
-
-Android SDK repo uses Maven:
-
-```kotlin
-dependencies {
-    implementation("com.useunloq:unloq-offers-core:1.0.0")
-}
-```
-
-KMP merchant apps also use Maven:
-
-```kotlin
-commonMain.dependencies {
-    implementation("com.useunloq:unloq-offers-core:1.0.0")
-}
-```
-
-## How Swift Repo Uses The S3 Files
-
-The Swift repo downloads only the iOS framework zip:
-
-```bash
-curl -L \
-  "https://sdk.useunloq.com/ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip" \
-  -o ".build/kmp-core/UnloqOffersCore.xcframework.zip"
-
-unzip ".build/kmp-core/UnloqOffersCore.xcframework.zip" \
-  -d ".build/kmp-core"
-```
-
-Then the Swift SDK build links:
-
-```text
-.build/kmp-core/UnloqOffersCore.xcframework
-```
-
-into the final merchant-facing artifact:
-
-```text
-UnloqOffers.xcframework.zip
-```
-
-So `UnloqOffersCore.xcframework.zip` is an internal build input for the Swift repo. Merchants should keep using `UnloqOffers.xcframework.zip`.
-
-## Complete Release Output Summary
-
-```text
-KMP core repo release
-  S3/CDN:
-    ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip
-    ios/kmp-core/1.0.0/UnloqOffersCore.xcframework.zip.checksum
-    ios/kmp-core/1.0.0/release-manifest.json
-
-  Maven:
-    maven/com/useunloq/unloq-offers-core/1.0.0/unloq-offers-core-1.0.0.pom
-    maven/com/useunloq/unloq-offers-core/1.0.0/unloq-offers-core-1.0.0.module
-    maven/com/useunloq/unloq-offers-core/1.0.0/unloq-offers-core-1.0.0.jar
-    maven/com/useunloq/unloq-offers-core-android/1.0.0/unloq-offers-core-android-1.0.0.aar
-    maven/com/useunloq/unloq-offers-core-iosarm64/1.0.0/unloq-offers-core-iosarm64-1.0.0.klib
-    maven/com/useunloq/unloq-offers-core-iossimulatorarm64/1.0.0/unloq-offers-core-iossimulatorarm64-1.0.0.klib
-```
-
-The real Maven publication will also include checksums and metadata files generated by Gradle/Maven.
+These are example names. Real releases should also include Gradle/Maven checksums, module metadata, Swift package checksums, provenance, and CI build metadata.

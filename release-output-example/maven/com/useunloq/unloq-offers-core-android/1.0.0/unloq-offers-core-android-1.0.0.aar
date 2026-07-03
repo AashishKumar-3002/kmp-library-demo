@@ -1,9 +1,0 @@
-placeholder: Android AAR for the KMP core
-
-This is the file Gradle resolves for Android consumers.
-
-It is NOT downloaded manually by merchants.
-It is pulled automatically from Maven by:
-
-implementation("com.useunloq:unloq-offers-core:1.0.0")
-

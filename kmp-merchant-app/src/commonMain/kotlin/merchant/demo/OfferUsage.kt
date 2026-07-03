@@ -1,6 +1,6 @@
 package merchant.demo
 
-import com.useunloq.offers.core.OfferEnvironment
+import com.useunloq.offers.kmp.OfferEnvironment
 import com.useunloq.offers.kmp.OfferWidgetHostContext
 import com.useunloq.offers.kmp.UnloqOffers
 
@@ -19,9 +19,16 @@ class OfferUsage {
     }
 
     fun renderOffer(): String {
-        val result = offers.evaluate(cartValue = 7500, currency = "INR")
+        val presentation = offers.showWidget(
+            hostContext = OfferWidgetHostContext(
+                screenName = "Checkout",
+                hostId = "merchant_checkout"
+            ),
+            cartValue = 7500,
+            currency = "INR"
+        )
 
-        return "${result.rewardText} on ${result.platform} via ${result.widgetUrl}"
+        return "${presentation.platformShell} -> ${presentation.summary} -> ${presentation.widgetUrl}"
     }
 
     fun showWidget(): String {
