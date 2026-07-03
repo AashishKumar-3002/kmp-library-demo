@@ -10,12 +10,14 @@
 		1A0000010000000000000001 /* KmpMerchantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000010000000000000011 /* KmpMerchantApp.swift */; };
 		1A0000010000000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0000010000000000000012 /* ContentView.swift */; };
 		1A0000010000000000000003 /* NativeIosWrapperDemo in Frameworks */ = {isa = PBXBuildFile; productRef = 1A0000010000000000000021 /* NativeIosWrapperDemo */; };
+		1A0000010000000000000004 /* KmpMerchantShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A0000010000000000000014 /* KmpMerchantShared.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A0000010000000000000011 /* KmpMerchantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KmpMerchantApp.swift; sourceTree = "<group>"; };
 		1A0000010000000000000012 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1A0000010000000000000013 /* KmpMerchantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KmpMerchantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A0000010000000000000014 /* KmpMerchantShared.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KmpMerchantShared.framework; path = "../build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)/KmpMerchantShared.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,6 +25,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A0000010000000000000004 /* KmpMerchantShared.framework in Frameworks */,
 				1A0000010000000000000003 /* NativeIosWrapperDemo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				1A0000010000000000000013 /* KmpMerchantApp.app */,
+				1A0000010000000000000014 /* KmpMerchantShared.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +66,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A0000010000000000000061 /* Build configuration list for PBXNativeTarget "KmpMerchantApp" */;
 			buildPhases = (
+				1A0000010000000000000033 /* Build KMP Framework */,
 				1A0000010000000000000032 /* Sources */,
 				1A0000010000000000000031 /* Frameworks */,
 			);
@@ -78,6 +83,27 @@
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A0000010000000000000033 /* Build KMP Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build KMP Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\ncd \"$SRCROOT/../..\"\nif [ -x \"./gradlew\" ]; then\n  ./gradlew :kmp-merchant-app:embedAndSignAppleFrameworkForXcode\nelse\n  gradle :kmp-merchant-app:embedAndSignAppleFrameworkForXcode\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXProject section */
 		1A0000010000000000000071 /* Project object */ = {
@@ -143,6 +169,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				KOTLIN_FRAMEWORK_BUILD_TYPE = Debug;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -172,6 +199,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				KOTLIN_FRAMEWORK_BUILD_TYPE = Release;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

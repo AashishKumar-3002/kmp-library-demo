@@ -10,20 +10,40 @@ val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
 
 kotlin {
     androidTarget()
-    iosArm64()
-    iosSimulatorArm64 {
-        binaries.all {
+    val iosArm64Target = iosArm64()
+    val iosSimulatorArm64Target = iosSimulatorArm64()
+
+    listOf(iosArm64Target, iosSimulatorArm64Target).forEach { target ->
+        target.binaries.framework {
+            baseName = "KmpMerchantShared"
+        }
+    }
+
+    fun configureNativeIosLinking(
+        target: org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget,
+        sdkFolder: String
+    ) {
+        target.binaries.all {
             linkerOpts(
-                "-F$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks",
+                "-F$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks",
                 "-framework",
                 "NativeIosWrapperDemo",
                 "-framework",
                 "UnloqOffersCore",
                 "-rpath",
-                "$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks"
+                "$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks"
             )
         }
     }
+
+    configureNativeIosLinking(
+        target = iosSimulatorArm64Target,
+        sdkFolder = "Debug-iphonesimulator"
+    )
+    configureNativeIosLinking(
+        target = iosArm64Target,
+        sdkFolder = "Debug-iphoneos"
+    )
 
     sourceSets {
         commonMain.dependencies {

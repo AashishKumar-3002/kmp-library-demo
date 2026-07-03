@@ -148,11 +148,11 @@ offers-kmp iosSimulatorArm64Main
   -> shared-core
 ```
 
-Current limitation: `iosArm64` device wiring still needs the device slice of the Swift SDK framework/XCFramework exposed to Kotlin/Native cinterop. The simulator path is fully tested.
+The same wiring is now used for both `iosSimulatorArm64` and `iosArm64` in `offers-kmp`.
 
 ## KMP Merchant App iOS Status
 
-`kmp-merchant-app/iosApp` is a visual iOS merchant app. It installs the local `native-ios-wrapper` Swift package, and that package links the KMP core XCFramework.
+`kmp-merchant-app/iosApp` is a visual iOS merchant app. It now imports the `KmpMerchantShared` framework generated from `kmp-merchant-app`, which depends on `offers-kmp`. The iOS target of `offers-kmp` delegates to the local `native-ios-wrapper`, and that wrapper links the KMP core XCFramework.
 
 Build it after generating the core XCFramework:
 
@@ -174,7 +174,7 @@ xcrun simctl install booted "$IOS_DERIVED_DATA/Build/Products/Debug-iphonesimula
 xcrun simctl launch booted merchant.demo.kmp.ios
 ```
 
-The app shows `UNLOQ KMP Merchant App`, imports `NativeIosWrapperDemo`, initializes the SDK, and displays the generated offer summary + widget URL.
+The app shows `UNLOQ KMP Merchant App`, imports `KmpMerchantShared`, calls the shared `KmpMerchantBridge`, and displays the generated offer summary + widget URL.
 
 ## Release Output Example
 

@@ -1,5 +1,4 @@
 import SwiftUI
-import NativeIosWrapperDemo
 
 @main
 struct KmpMerchantApp: App {
