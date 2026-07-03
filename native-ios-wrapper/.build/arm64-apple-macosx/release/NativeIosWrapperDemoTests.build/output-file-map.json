@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.d",
+    "object": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.o",
+    "swift-dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/master.swiftdeps"
+  },
+  "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Tests/NativeIosWrapperDemoTests/NativeIosWrapperDemoTests.swift": {
+    "object": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.swift.o",
+    "swiftmodule": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.swiftdeps",
+    "diagnostics": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.dia"
+  }
+}

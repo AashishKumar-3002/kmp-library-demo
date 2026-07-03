@@ -19,12 +19,14 @@ kotlin {
     val iosArm64 = iosArm64()
     val iosSimulatorArm64 = iosSimulatorArm64()
     val macosArm64 = macosArm64()
+    val iosX64 = iosX64()
     val xcf = XCFramework("UnloqOffersCore")
 
     listOf(
         iosArm64,
         iosSimulatorArm64,
-        macosArm64
+        macosArm64,
+        iosX64
     ).forEach { target ->
         target.binaries.framework {
             baseName = "UnloqOffersCore"

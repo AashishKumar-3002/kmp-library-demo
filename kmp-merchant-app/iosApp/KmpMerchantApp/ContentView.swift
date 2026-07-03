@@ -2,7 +2,7 @@ import SwiftUI
 import KmpMerchantShared
 
 struct ContentView: View {
-    @State private var resultText = "Tap the button to exercise the KMP merchant app bridge."
+    @State private var resultText = "Tap the button to show the widget drawer."
     private let bridge = KmpMerchantBridge()
 
     var body: some View {

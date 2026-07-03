@@ -20,9 +20,8 @@ kotlin {
     ) {
         target.binaries.all {
             linkerOpts(
+                "$iosDerivedDataPath/Build/Products/$sdkFolder/NativeIosWrapperDemo.o",
                 "-F$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks",
-                "-framework",
-                "NativeIosWrapperDemo",
                 "-framework",
                 "UnloqOffersCore",
                 "-rpath",

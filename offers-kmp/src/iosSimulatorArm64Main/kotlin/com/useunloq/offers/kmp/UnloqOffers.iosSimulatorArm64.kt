@@ -35,6 +35,7 @@ actual class UnloqOffers actual constructor() {
         cartValue: Long,
         currency: String
     ): OfferWidgetPresentation {
+        iosSdk.showWidgetWithCartValue(cartValue)
         return OfferWidgetPresentation(
             platformShell = "iOS SDK sheet + WKWebView",
             widgetUrl = iosSdk.widgetUrlWithCartValue(cartValue),

@@ -7,12 +7,21 @@ val iosDerivedDataPath = project.providers.gradleProperty("iosDerivedData")
     .get()
 
 fun configureNativeIosLinking(target: KotlinNativeTarget, sdkFolder: String) {
+    val repoRoot = project.rootDir.absolutePath
+    val isSimulator = sdkFolder.contains("simulator")
+    
+    val simulatorObj = "$repoRoot/native-ios-wrapper/archives/NativeIosWrapperDemo-iphonesimulator.xcarchive/Products/Users/aashishkumar/Objects/NativeIosWrapperDemo.o"
+    val deviceObj = "$repoRoot/native-ios-wrapper/archives/NativeIosWrapperDemo-iphoneos.xcarchive/Products/Users/aashishkumar/Objects/NativeIosWrapperDemo.o"
+    val wrapperObj = if (isSimulator) simulatorObj else deviceObj
+    
+    val frameworkFolder = if (isSimulator) "ios-arm64_x86_64-simulator" else "ios-arm64"
+    val unloqOffersCorePath = "$repoRoot/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/$frameworkFolder"
+    
     target.binaries.all {
         linkerOpts(
-            "-F$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks",
-            "-framework", "NativeIosWrapperDemo",
-            "-framework", "UnloqOffersCore",
-            "-rpath", "$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks"
+            wrapperObj,
+            "-F$unloqOffersCorePath",
+            "-framework", "UnloqOffersCore"
         )
     }
 }

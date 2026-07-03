@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/NativeIosWrapperDemo.d",
+    "object": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/NativeIosWrapperDemo.o",
+    "swift-dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/master.swiftdeps"
+  },
+  "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Sources/NativeIosWrapperDemo/UNQOffers.swift": {
+    "object": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swift.o",
+    "swiftmodule": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers~partial.swiftmodule",
+    "swift-dependencies": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swiftdeps",
+    "diagnostics": "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.dia"
+  }
+}
