@@ -2,7 +2,9 @@ package com.useunloq.offers.android
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.useunloq.offers.core.OfferAttribution
@@ -94,9 +96,16 @@ class UnloqOffersAndroidSdk {
         activity: FragmentActivity,
         presentation: AndroidOfferWidgetPresentation
     ) {
+        lateinit var dialog: BottomSheetDialog
         val webView = WebView(activity).apply {
             setBackgroundColor(Color.WHITE)
             settings.javaScriptEnabled = true
+            addJavascriptInterface(
+                OfferWidgetActionBridge(activity = activity) {
+                    dialog.dismiss()
+                },
+                "UnloqAndroid"
+            )
             loadDataWithBaseURL(
                 presentation.widgetUrl,
                 buildDemoWidgetHtml(presentation),
@@ -106,7 +115,7 @@ class UnloqOffersAndroidSdk {
             )
         }
 
-        BottomSheetDialog(activity).apply {
+        dialog = BottomSheetDialog(activity).apply {
             setContentView(webView)
             show()
         }
@@ -135,13 +144,30 @@ class UnloqOffersAndroidSdk {
                             ${presentation.widgetUrl}
                         </div>
                     </div>
-                    <button style="margin-top:20px;width:100%;border:0;border-radius:999px;padding:14px;background:#4f3b7f;color:white;font-size:16px;font-weight:700;">
+                    <button onclick="UnloqAndroid.continueWithOffer()" style="margin-top:20px;width:100%;border:0;border-radius:999px;padding:14px;background:#4f3b7f;color:white;font-size:16px;font-weight:700;">
                         Continue with offer
                     </button>
                 </div>
             </body>
             </html>
         """.trimIndent()
+    }
+
+    private class OfferWidgetActionBridge(
+        private val activity: FragmentActivity,
+        private val dismissWidget: () -> Unit
+    ) {
+        @JavascriptInterface
+        fun continueWithOffer() {
+            activity.runOnUiThread {
+                Toast.makeText(
+                    activity,
+                    "Offer accepted from native Android SDK",
+                    Toast.LENGTH_SHORT
+                ).show()
+                dismissWidget()
+            }
+        }
     }
 
     private fun String.toCoreEnvironment(): OfferEnvironment {
