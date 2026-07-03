@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.application")
+    id("com.useunloq.offers.merchant")
 }
 
 val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
@@ -19,35 +20,10 @@ kotlin {
         }
     }
 
-    fun configureNativeIosLinking(
-        target: org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget,
-        sdkFolder: String
-    ) {
-        target.binaries.all {
-            linkerOpts(
-                "-F$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks",
-                "-framework",
-                "NativeIosWrapperDemo",
-                "-framework",
-                "UnloqOffersCore",
-                "-rpath",
-                "$iosDerivedDataPath/Build/Products/$sdkFolder/PackageFrameworks"
-            )
-        }
-    }
-
-    configureNativeIosLinking(
-        target = iosSimulatorArm64Target,
-        sdkFolder = "Debug-iphonesimulator"
-    )
-    configureNativeIosLinking(
-        target = iosArm64Target,
-        sdkFolder = "Debug-iphoneos"
-    )
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":offers-kmp"))
+            // offers-kmp is added automatically by the com.useunloq.offers.merchant plugin
         }
 
         commonTest.dependencies {
