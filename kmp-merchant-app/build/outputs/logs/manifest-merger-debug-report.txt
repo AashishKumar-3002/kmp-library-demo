@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-16:12
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-16:12
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-16:12
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-16:12
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-18:12
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-18:12
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-18:12
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:1-18:12
 MERGED from [androidx.databinding:viewbinding:8.7.2] /private/tmp/codex-gradle-home/caches/8.9/transforms/7913e2adb400639285d33cb9a42c7f90/transformed/viewbinding-8.7.2/AndroidManifest.xml:2:1-7:12
 MERGED from [:offers-kmp] /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/offers-kmp/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
 MERGED from [:native-android-wrapper] /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-android-wrapper/build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml:2:1-7:12
@@ -63,9 +63,13 @@ MERGED from [androidx.print:print:1.0.0] /private/tmp/codex-gradle-home/caches/8
 		INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:2:5-67
+	android:name
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:2:22-64
 application
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:2:5-15:19
-INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:2:5-15:19
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:4:5-17:19
+INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:4:5-17:19
 MERGED from [com.google.android.material:material:1.12.0] /private/tmp/codex-gradle-home/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] /private/tmp/codex-gradle-home/caches/8.9/transforms/889fd070658c85dc24c766a3e7536ad0/transformed/material-1.12.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /private/tmp/codex-gradle-home/caches/8.9/transforms/017dcc780edb4f69811b66954ffdc7e8/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
@@ -87,29 +91,29 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] /private/tmp/codex-gradle-h
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] /private/tmp/codex-gradle-home/caches/8.9/transforms/42093fc4efce933960ab85ab066169dd/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:5:9-35
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:7:9-35
 	android:label
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:4:9-43
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:6:9-43
 	android:allowBackup
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:3:9-35
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:5:9-35
 	android:theme
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:6:9-68
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:8:9-68
 activity#merchant.demo.kmp.MainActivity
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:7:9-14:20
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:9:9-16:20
 	android:exported
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:9:13-36
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:11:13-36
 	android:name
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:8:13-41
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:10:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:10:13-13:29
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:12:13-15:29
 action#android.intent.action.MAIN
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:11:17-69
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:13:17-69
 	android:name
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:11:25-66
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:13:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:12:17-77
+ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:14:17-77
 	android:name
-		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:12:27-74
+		ADDED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml:14:27-74
 uses-sdk
 INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/aashishkumar/fealtyx/github.com/kmp-library-demo/kmp-merchant-app/src/androidMain/AndroidManifest.xml

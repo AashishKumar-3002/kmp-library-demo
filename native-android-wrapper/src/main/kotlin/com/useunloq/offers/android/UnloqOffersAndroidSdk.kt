@@ -1,6 +1,7 @@
 package com.useunloq.offers.android
 
-import android.view.LayoutInflater
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.webkit.WebView
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -88,23 +89,59 @@ class UnloqOffersAndroidSdk {
         return "$merchantId -> ${result.title}: ${result.rewardText}"
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun renderWidget(
         activity: FragmentActivity,
         presentation: AndroidOfferWidgetPresentation
     ) {
-        val webView = LayoutInflater.from(activity)
-            .inflate(android.R.layout.simple_list_item_1, null)
-            .let {
-                WebView(activity).apply {
-                    settings.javaScriptEnabled = true
-                    loadUrl(presentation.widgetUrl)
-                }
-            }
+        val webView = WebView(activity).apply {
+            setBackgroundColor(Color.WHITE)
+            settings.javaScriptEnabled = true
+            loadDataWithBaseURL(
+                presentation.widgetUrl,
+                buildDemoWidgetHtml(presentation),
+                "text/html",
+                "utf-8",
+                null
+            )
+        }
 
         BottomSheetDialog(activity).apply {
             setContentView(webView)
             show()
         }
+    }
+
+    private fun buildDemoWidgetHtml(presentation: AndroidOfferWidgetPresentation): String {
+        return """
+            <html>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </head>
+            <body style="margin:0;font-family:sans-serif;background:#fff8df;color:#172033;">
+                <div style="padding:24px;">
+                    <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#7b5d00;">
+                        UNLOQ Native Android SDK
+                    </div>
+                    <h1 style="font-size:28px;line-height:1.1;margin:12px 0 8px;">
+                        Offer widget shell
+                    </h1>
+                    <p style="font-size:16px;line-height:1.45;margin:0 0 18px;">
+                        ${presentation.summary}
+                    </p>
+                    <div style="border-radius:18px;background:#ffffff;padding:16px;border:1px solid #ecd98a;">
+                        <strong>Generated widget URL</strong>
+                        <div style="font-size:12px;line-height:1.4;word-break:break-word;margin-top:8px;">
+                            ${presentation.widgetUrl}
+                        </div>
+                    </div>
+                    <button style="margin-top:20px;width:100%;border:0;border-radius:999px;padding:14px;background:#4f3b7f;color:white;font-size:16px;font-weight:700;">
+                        Continue with offer
+                    </button>
+                </div>
+            </body>
+            </html>
+        """.trimIndent()
     }
 
     private fun String.toCoreEnvironment(): OfferEnvironment {

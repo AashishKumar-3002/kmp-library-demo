@@ -8,6 +8,8 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="35" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="merchant.demo.kmp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
