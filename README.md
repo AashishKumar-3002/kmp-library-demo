@@ -42,6 +42,48 @@ export GRADLE_USER_HOME="${GRADLE_USER_HOME:-/tmp/unloq-kmp-gradle-home}"
 export IOS_DERIVED_DATA="${IOS_DERIVED_DATA:-/tmp/unloq-kmp-ios-derived-data}"
 ```
 
+## Complete Build Sequence (Android & iOS)
+
+Because of the hybrid architecture (where KMP bridges to native Swift/Android UI components), the iOS build requires manual pre-compilation steps, while Android is fully automated by Gradle.
+
+### Build Android APK
+
+The Android build is seamless because Gradle understands all the module dependencies natively.
+
+```bash
+# Build the Android APK (automatically resolves shared-core, native-android-wrapper, and offers-kmp)
+./gradlew :kmp-merchant-app:assembleDebug
+```
+APK output: `kmp-merchant-app/build/outputs/apk/debug/kmp-merchant-app-debug.apk`
+
+### Build iOS App
+
+Before you build the iOS app, you must compile the shared core and package the Swift UI wrapper.
+
+1. **Build the Shared Core XCFramework**
+```bash
+./gradlew :shared-core:assembleXCFramework
+```
+
+2. **Archive the Native Swift Wrapper**
+The KMP build script is hardcoded to look for the compiled `.o` object files inside of Xcode Archives. You must build an archive for both Simulator and Device:
+```bash
+cd native-ios-wrapper
+# Archive for iOS Simulator
+xcodebuild archive -scheme NativeIosWrapperDemo -destination "generic/platform=iOS Simulator" -archivePath "archives/NativeIosWrapperDemo-iphonesimulator.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ENABLE_PREVIEWS=NO
+
+# Archive for iOS Device
+xcodebuild archive -scheme NativeIosWrapperDemo -destination "generic/platform=iOS" -archivePath "archives/NativeIosWrapperDemo-iphoneos.xcarchive" SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ENABLE_PREVIEWS=NO
+cd ..
+```
+
+3. **Build the iOS Merchant App**
+You can now build the actual iOS app (Xcode will automatically trigger the Gradle script to compile the final `KmpMerchantShared.framework`):
+```bash
+xcodebuild build -project kmp-merchant-app/iosApp/KmpMerchantApp.xcodeproj -scheme KmpMerchantApp -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17'
+```
+*(Note: If you change the Swift code in `native-ios-wrapper` later, you MUST re-run Step 2 before building the app, otherwise KMP will use stale cached code.)*
+
 ## Build And Test Android
 
 ```bash
@@ -148,11 +190,11 @@ offers-kmp iosSimulatorArm64Main
   -> shared-core
 ```
 
-Current limitation: `iosArm64` device wiring still needs the device slice of the Swift SDK framework/XCFramework exposed to Kotlin/Native cinterop. The simulator path is fully tested.
+The same wiring is now used for both `iosSimulatorArm64` and `iosArm64` in `offers-kmp`.
 
 ## KMP Merchant App iOS Status
 
-`kmp-merchant-app/iosApp` is a visual iOS merchant app. It installs the local `native-ios-wrapper` Swift package, and that package links the KMP core XCFramework.
+`kmp-merchant-app/iosApp` is a visual iOS merchant app. It imports only the `KmpMerchantShared` framework generated from `kmp-merchant-app`, which depends on `offers-kmp`. The Xcode build script first builds `native-ios-wrapper`, then Gradle builds the KMP framework. The iOS target of `offers-kmp` delegates to `native-ios-wrapper`, and that wrapper links the KMP core XCFramework.
 
 Build it after generating the core XCFramework:
 
@@ -174,7 +216,7 @@ xcrun simctl install booted "$IOS_DERIVED_DATA/Build/Products/Debug-iphonesimula
 xcrun simctl launch booted merchant.demo.kmp.ios
 ```
 
-The app shows `UNLOQ KMP Merchant App`, imports `NativeIosWrapperDemo`, initializes the SDK, and displays the generated offer summary + widget URL.
+The app shows `UNLOQ KMP Merchant App`, imports `KmpMerchantShared`, calls the shared `KmpMerchantBridge`, and displays the generated offer summary + widget URL.
 
 ## Release Output Example
 

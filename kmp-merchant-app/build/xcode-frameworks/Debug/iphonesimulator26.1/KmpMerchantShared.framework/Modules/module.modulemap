@@ -1,0 +1,8 @@
+framework module "KmpMerchantShared" {
+    umbrella header "KmpMerchantShared.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}

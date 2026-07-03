@@ -378,6 +378,7 @@ SWIFT_CLASS_NAMED("UNQOffers")
 - (NSString * _Nonnull)bannerTextWithCartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)widgetUrlWithCartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)widgetPresentationSummaryWithScreenName:(NSString * _Nonnull)screenName hostId:(NSString * _Nonnull)hostId cartValue:(int64_t)cartValue SWIFT_WARN_UNUSED_RESULT;
+- (void)showWidgetWithCartValue:(int64_t)cartValue;
 @end
 
 #endif // defined(__OBJC__)

@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.application")
+    id("com.useunloq.offers.merchant")
 }
 
 val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
@@ -10,24 +11,19 @@ val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
 
 kotlin {
     androidTarget()
-    iosArm64()
-    iosSimulatorArm64 {
-        binaries.all {
-            linkerOpts(
-                "-F$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks",
-                "-framework",
-                "NativeIosWrapperDemo",
-                "-framework",
-                "UnloqOffersCore",
-                "-rpath",
-                "$iosDerivedDataPath/Build/Products/Debug-iphonesimulator/PackageFrameworks"
-            )
+    val iosArm64Target = iosArm64()
+    val iosSimulatorArm64Target = iosSimulatorArm64()
+
+    listOf(iosArm64Target, iosSimulatorArm64Target).forEach { target ->
+        target.binaries.framework {
+            baseName = "KmpMerchantShared"
         }
     }
 
+
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":offers-kmp"))
+            // offers-kmp is added automatically by the com.useunloq.offers.merchant plugin
         }
 
         commonTest.dependencies {

@@ -1,0 +1,735 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.xctest/Contents/MacOS/NativeIosWrapperDemoPackageTests",
+      "packagePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper",
+      "productName" : "NativeIosWrapperDemoPackageTests"
+    }
+  ],
+  "copyCommands" : {
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/UnloqOffersCore.framework" : {
+      "inputs" : [
+        {
+          "kind" : "directory",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64/UnloqOffersCore.framework"
+        }
+      ],
+      "outputs" : [
+        {
+          "kind" : "directory",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/UnloqOffersCore.framework"
+        }
+      ]
+    }
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.NativeIosWrapperDemo-arm64-apple-macosx15.0-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/sources",
+      "importPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Sources/NativeIosWrapperDemo/UNQOffers.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "directory",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/UnloqOffersCore.framework"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "NativeIosWrapperDemo",
+      "moduleOutputPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemo.swiftmodule",
+      "objects" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "10",
+        "-serialize-diagnostics",
+        "-O",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-I",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-module-cache-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-F",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/include/NativeIosWrapperDemo-Swift.h",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        ".build/release/NativeIosWrapperDemo.h",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "native_ios_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemo.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Sources/NativeIosWrapperDemo/UNQOffers.swift"
+      ],
+      "tempsPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build",
+      "wholeModuleOptimization" : true
+    },
+    "C.NativeIosWrapperDemoPackageTests-arm64-apple-macosx15.0-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/sources",
+      "importPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemoTests.swiftmodule"
+        },
+        {
+          "kind" : "directory",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/UnloqOffersCore.framework"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "NativeIosWrapperDemoPackageTests",
+      "moduleOutputPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemoPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx13.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "10",
+        "-serialize-diagnostics",
+        "-O",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-I",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-module-cache-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-F",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/include/NativeIosWrapperDemoPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        ".build/release/NativeIosWrapperDemo.h",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "native_ios_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemoPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build",
+      "wholeModuleOptimization" : true
+    },
+    "C.NativeIosWrapperDemoTests-arm64-apple-macosx15.0-release.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/sources",
+      "importPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Tests/NativeIosWrapperDemoTests/NativeIosWrapperDemoTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemo.swiftmodule"
+        },
+        {
+          "kind" : "directory",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/UnloqOffersCore.framework"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "NativeIosWrapperDemoTests",
+      "moduleOutputPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemoTests.swiftmodule",
+      "objects" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-whole-module-optimization",
+        "-num-threads",
+        "10",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/index/store",
+        "-O",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-I",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+        "-module-cache-path",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-F",
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+        "-swift-version",
+        "6",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        ".build/release/NativeIosWrapperDemo.h",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "native_ios_wrapper"
+      ],
+      "outputFileMapPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules/NativeIosWrapperDemoTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Tests/NativeIosWrapperDemoTests/NativeIosWrapperDemoTests.swift"
+      ],
+      "tempsPath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build",
+      "wholeModuleOptimization" : true
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "NativeIosWrapperDemo" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "NativeIosWrapperDemo",
+      "-package-name",
+      "native_ios_wrapper",
+      "-c",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Sources/NativeIosWrapperDemo/UNQOffers.swift",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "10",
+      "-serialize-diagnostics",
+      "-O",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-module-cache-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-F",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/include/NativeIosWrapperDemo-Swift.h",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      ".build/release/NativeIosWrapperDemo.h",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "native_ios_wrapper",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "NativeIosWrapperDemoPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "NativeIosWrapperDemoPackageTests",
+      "-package-name",
+      "native_ios_wrapper",
+      "-c",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx13.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "10",
+      "-serialize-diagnostics",
+      "-O",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-module-cache-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-F",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/include/NativeIosWrapperDemoPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      ".build/release/NativeIosWrapperDemo.h",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "native_ios_wrapper",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "NativeIosWrapperDemoTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "NativeIosWrapperDemoTests",
+      "-package-name",
+      "native_ios_wrapper",
+      "-c",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Tests/NativeIosWrapperDemoTests/NativeIosWrapperDemoTests.swift",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-whole-module-optimization",
+      "-num-threads",
+      "10",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/index/store",
+      "-O",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-I",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/shared-core/build/XCFrameworks/release/UnloqOffersCore.xcframework/macos-arm64",
+      "-module-cache-path",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-F",
+      "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release",
+      "-swift-version",
+      "6",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      ".build/release/NativeIosWrapperDemo.h",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "native_ios_wrapper",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "NativeIosWrapperDemo" : [
+      "UnloqOffersCore"
+    ],
+    "NativeIosWrapperDemoPackageTests" : [
+      "NativeIosWrapperDemoTests",
+      "NativeIosWrapperDemo",
+      "UnloqOffersCore"
+    ],
+    "NativeIosWrapperDemoTests" : [
+      "NativeIosWrapperDemo",
+      "UnloqOffersCore"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Sources/NativeIosWrapperDemo/UNQOffers.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/sources"
+    },
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.product/Objects.LinkFileList"
+    },
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/sources"
+    },
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemo.build/UNQOffers.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/NativeIosWrapperDemoTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/Tests/NativeIosWrapperDemoTests/NativeIosWrapperDemoTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/NativeIosWrapperDemoTests.build/sources"
+    },
+    "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/aashishkumar/fealtyx/github.com/kmp-library-demo/native-ios-wrapper/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

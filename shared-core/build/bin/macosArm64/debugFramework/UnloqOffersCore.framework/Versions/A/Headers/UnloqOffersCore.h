@@ -247,6 +247,8 @@ __attribute__((swift_name("OfferUser")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("UnloqOffersCoreClient")))
 @interface UOCUnloqOffersCoreClient : UOCBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithEngine:(UOCOfferEngine *)engine __attribute__((swift_name("init(engine:)"))) __attribute__((objc_designated_initializer));
 - (void)emitEventEvent:(UOCOfferEvent *)event __attribute__((swift_name("emitEvent(event:)")));
 - (UOCOfferDecision *)evaluateCartValue:(int64_t)cartValue currency:(NSString *)currency __attribute__((swift_name("evaluate(cartValue:currency:)")));

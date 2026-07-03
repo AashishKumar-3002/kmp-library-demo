@@ -1,24 +1,33 @@
 package com.useunloq.offers.kmp
 
+import kotlinx.cinterop.ExperimentalForeignApi
+import nativeios.UNQOffersBridge
+
+@OptIn(ExperimentalForeignApi::class)
 actual class UnloqOffers actual constructor() {
+    private val iosSdk = UNQOffersBridge()
+
     actual fun initialize(
         merchantId: String,
         environment: OfferEnvironment,
         widgetBaseUrl: String
     ) {
-        nativeIosSdkRequired()
+        iosSdk.initializeWithMerchantId(
+            merchantId = merchantId,
+            widgetBaseUrl = widgetBaseUrl
+        )
     }
 
     actual fun setUser(id: String, loyaltyTier: String) {
-        nativeIosSdkRequired()
+        iosSdk.setUserWithId(id = id, loyaltyTier = loyaltyTier)
     }
 
     actual fun setAttribution(source: String, campaign: String) {
-        nativeIosSdkRequired()
+        iosSdk.setAttributionWithSource(source = source, campaign = campaign)
     }
 
     actual fun emitEvent(name: String, value: String) {
-        nativeIosSdkRequired()
+        iosSdk.emitEventWithName(name = name, value = value)
     }
 
     actual fun showWidget(
@@ -26,13 +35,15 @@ actual class UnloqOffers actual constructor() {
         cartValue: Long,
         currency: String
     ): OfferWidgetPresentation {
-        nativeIosSdkRequired()
-    }
-
-    private fun nativeIosSdkRequired(): Nothing {
-        error(
-            "The device iOS KMP wrapper target needs a device NativeIosWrapperDemo.framework " +
-                "or XCFramework slice wired through Kotlin/Native cinterop."
+        iosSdk.showWidgetWithCartValue(cartValue)
+        return OfferWidgetPresentation(
+            platformShell = "iOS SDK sheet + WKWebView",
+            widgetUrl = iosSdk.widgetUrlWithCartValue(cartValue),
+            summary = iosSdk.widgetPresentationSummaryWithScreenName(
+                screenName = hostContext.screenName,
+                hostId = hostContext.hostId,
+                cartValue = cartValue
+            )
         )
     }
 }
