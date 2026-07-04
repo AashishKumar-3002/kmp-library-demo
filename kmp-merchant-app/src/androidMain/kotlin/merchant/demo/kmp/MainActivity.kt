@@ -2,31 +2,26 @@ package merchant.demo.kmp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.useunloq.offers.kmp.OfferEnvironment
 import com.useunloq.offers.kmp.OfferWidgetHostContext
-import com.useunloq.offers.kmp.UnloqOffers
+import merchant.demo.OfferUsage
 import merchant.demo.kmp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val offers = UnloqOffers()
+    private val offerUsage = OfferUsage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        offers.initialize(
-            merchantId = "merchant_123",
-            environment = OfferEnvironment.QA,
-            widgetBaseUrl = "https://qa-sdk.useunloq.com/widget"
-        )
-        offers.setUser(id = "kmp_android_user", loyaltyTier = "gold")
-        offers.setAttribution(source = "kmp-merchant-app", campaign = "android")
-        offers.emitEvent(name = "checkout_started", value = "1")
+        // The initialization logic is now shared entirely in commonMain!
+        offerUsage.setup()
 
         binding.showWidgetButton.setOnClickListener {
-            val presentation = offers.showWidget(
+            // We use the common offers instance, but call the Android-specific showWidget extension
+            // that accepts the Activity context, because Android UI must be tied to an Activity.
+            val presentation = offerUsage.offers.showWidget(
                 activity = this,
                 hostContext = OfferWidgetHostContext(
                     screenName = "Checkout",
