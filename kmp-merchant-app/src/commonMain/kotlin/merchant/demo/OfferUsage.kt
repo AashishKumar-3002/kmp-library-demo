@@ -5,7 +5,7 @@ import com.useunloq.offers.kmp.OfferWidgetHostContext
 import com.useunloq.offers.kmp.UnloqOffers
 
 class OfferUsage {
-    private val offers = UnloqOffers()
+    val offers = UnloqOffers()
 
     fun setup() {
         offers.initialize(
