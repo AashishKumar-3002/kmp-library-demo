@@ -62,6 +62,8 @@ public final class UNQOffers: NSObject, @unchecked Sendable {
             
             let webVC = UIViewController()
             let webView = WKWebView(frame: webVC.view.bounds, configuration: config)
+            webView.isOpaque = false
+            webView.backgroundColor = .clear
             webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             webVC.view.addSubview(webView)
             
@@ -105,8 +107,9 @@ public final class UNQOffers: NSObject, @unchecked Sendable {
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
-            <body style="margin:0;font-family:sans-serif;background:#fff8df;color:#172033;">
-                <div style="padding:24px;">
+            <body style="margin:0;font-family:sans-serif;background:transparent;color:#172033;">
+                <div style="background:#fff8df; border-top-left-radius:24px; border-top-right-radius:24px; padding:24px; min-height: 100vh;">
+                    <div style="width:36px;height:4px;background:#cccccc;border-radius:2px;margin:0 auto 20px;"></div>
                     <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#7b5d00;">
                         UNLOQ Native iOS SDK
                     </div>

@@ -1,7 +1,11 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("org.jetbrains.compose")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
+
+val compose = extensions.getByType<org.jetbrains.compose.ComposeExtension>().dependencies
 
 val iosDerivedDataPath = providers.gradleProperty("iosDerivedData")
     .orElse(providers.environmentVariable("IOS_DERIVED_DATA"))
@@ -54,6 +58,12 @@ kotlin {
     )
 
     sourceSets {
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.ui)
+        }
+
         androidMain.dependencies {
             implementation(project(":native-android-wrapper"))
             api("androidx.fragment:fragment-ktx:1.8.2")

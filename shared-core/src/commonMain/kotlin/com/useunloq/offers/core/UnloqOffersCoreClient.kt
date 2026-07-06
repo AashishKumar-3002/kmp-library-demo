@@ -1,9 +1,9 @@
 package com.useunloq.offers.core
 
-class UnloqOffersCoreClient(
-    private val engine: OfferEngine = OfferEngine()
-) {
-    constructor() : this(OfferEngine())
+class UnloqOffersCoreClient {
+    companion object {
+        private val engine = OfferEngine()
+    }
 
     fun initialize(config: OfferSdkConfig) {
         engine.initialize(config)

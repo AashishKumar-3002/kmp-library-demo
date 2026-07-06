@@ -1,10 +1,11 @@
 package com.useunloq.offers.kmp
 
-import androidx.fragment.app.FragmentActivity
 import com.useunloq.offers.android.UnloqOffersAndroidSdk
+import com.useunloq.offers.android.AndroidOfferWidgetPresentation
 
 actual class UnloqOffers actual constructor() {
     private val androidSdk = UnloqOffersAndroidSdk()
+    var context: android.content.Context? = null
 
     actual fun initialize(
         merchantId: String,
@@ -35,29 +36,26 @@ actual class UnloqOffers actual constructor() {
         cartValue: Long,
         currency: String
     ): OfferWidgetPresentation {
-        val presentation = androidSdk.prepareWidget(
-            screenName = hostContext.screenName,
-            hostId = hostContext.hostId,
-            cartValue = cartValue,
-            currency = currency
-        )
-        return presentation.toKmpPresentation()
-    }
-
-    fun showWidget(
-        activity: FragmentActivity,
-        hostContext: OfferWidgetHostContext,
-        cartValue: Long,
-        currency: String
-    ): OfferWidgetPresentation {
-        val presentation = androidSdk.showWidget(
-            activity = activity,
-            screenName = hostContext.screenName,
-            hostId = hostContext.hostId,
-            cartValue = cartValue,
-            currency = currency
-        )
-        return presentation.toKmpPresentation()
+        val safeContext = context
+        return if (safeContext != null) {
+            val presentation = androidSdk.showWidget(
+                context = safeContext,
+                screenName = hostContext.screenName,
+                hostId = hostContext.hostId,
+                cartValue = cartValue,
+                currency = currency
+            )
+            presentation.toKmpPresentation()
+        } else {
+            // Fallback to prepareWidget if no context is available
+            val presentation = androidSdk.prepareWidget(
+                screenName = hostContext.screenName,
+                hostId = hostContext.hostId,
+                cartValue = cartValue,
+                currency = currency
+            )
+            presentation.toKmpPresentation()
+        }
     }
 }
 
