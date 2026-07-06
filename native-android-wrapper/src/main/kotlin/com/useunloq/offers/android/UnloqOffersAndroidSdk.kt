@@ -69,7 +69,7 @@ class UnloqOffersAndroidSdk {
     }
 
     fun showWidget(
-        activity: FragmentActivity,
+        context: android.content.Context,
         screenName: String,
         hostId: String,
         cartValue: Long,
@@ -81,7 +81,7 @@ class UnloqOffersAndroidSdk {
             cartValue = cartValue,
             currency = currency
         )
-        renderWidget(activity = activity, presentation = presentation)
+        renderWidget(context = context, presentation = presentation)
         return presentation
     }
 
@@ -93,15 +93,15 @@ class UnloqOffersAndroidSdk {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun renderWidget(
-        activity: FragmentActivity,
+        context: android.content.Context,
         presentation: AndroidOfferWidgetPresentation
     ) {
         lateinit var dialog: BottomSheetDialog
-        val webView = WebView(activity).apply {
-            setBackgroundColor(Color.WHITE)
+        val webView = WebView(context).apply {
+            setBackgroundColor(Color.TRANSPARENT)
             settings.javaScriptEnabled = true
             addJavascriptInterface(
-                OfferWidgetActionBridge(activity = activity) {
+                OfferWidgetActionBridge(context = context) {
                     dialog.dismiss()
                 },
                 "UnloqAndroid"
@@ -115,8 +115,9 @@ class UnloqOffersAndroidSdk {
             )
         }
 
-        dialog = BottomSheetDialog(activity).apply {
+        dialog = BottomSheetDialog(context).apply {
             setContentView(webView)
+            findViewById<android.view.View>(com.google.android.material.R.id.design_bottom_sheet)?.setBackgroundResource(android.R.color.transparent)
             show()
         }
     }
@@ -127,8 +128,9 @@ class UnloqOffersAndroidSdk {
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </head>
-            <body style="margin:0;font-family:sans-serif;background:#fff8df;color:#172033;">
-                <div style="padding:24px;">
+            <body style="margin:0;font-family:sans-serif;background:transparent;color:#172033;">
+                <div style="background:#fff8df; border-top-left-radius:24px; border-top-right-radius:24px; padding:24px; min-height: 100vh;">
+                    <div style="width:36px;height:4px;background:#cccccc;border-radius:2px;margin:0 auto 20px;"></div>
                     <div style="font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#7b5d00;">
                         UNLOQ Native Android SDK
                     </div>
@@ -154,14 +156,14 @@ class UnloqOffersAndroidSdk {
     }
 
     private class OfferWidgetActionBridge(
-        private val activity: FragmentActivity,
+        private val context: android.content.Context,
         private val dismissWidget: () -> Unit
     ) {
         @JavascriptInterface
         fun continueWithOffer() {
-            activity.runOnUiThread {
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
                 Toast.makeText(
-                    activity,
+                    context,
                     "Offer accepted from native Android SDK",
                     Toast.LENGTH_SHORT
                 ).show()
